@@ -21,7 +21,7 @@ Core.prototype = {
 				node: 'crome_frame'
 			});					
 		} else {				
-			// асинхроная загрузка Chrome Frame API
+			// Р°СЃРёРЅС…СЂРѕРЅР°СЏ Р·Р°РіСЂСѓР·РєР° Chrome Frame API
 			var script = document.createElement('script'),
 				self = this;
 			
@@ -62,7 +62,7 @@ Core.prototype = {
 	
 };
 
-// Расширяем объект массива
+// Р Р°СЃС€РёСЂСЏРµРј РѕР±СЉРµРєС‚ РјР°СЃСЃРёРІР°
 $A = Array.from = function(iterable) {
 	if (!iterable) {
 		return [];
@@ -78,7 +78,7 @@ $A = Array.from = function(iterable) {
 	}
 };
 
-// Расширяем прототип функции для добавления передачи контекста через .bind()
+// Р Р°СЃС€РёСЂСЏРµРј РїСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РїРµСЂРµРґР°С‡Рё РєРѕРЅС‚РµРєСЃС‚Р° С‡РµСЂРµР· .bind()
 $.extend( Function.prototype, {
 	bind: function() {
 		var __method = this, args = $A(arguments), object = args.shift();
@@ -87,5 +87,17 @@ $.extend( Function.prototype, {
 		};
 	}
 });
+
+// Р Р°СЃС€РёСЂСЏРµРј РїСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё РґР»СЏ СЂРµР°Р»РёР·Р°С†РёРё РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ
+Function.prototype.inheritsFrom = function(superClass) {
+	var Inheritance = function(){};
+	Inheritance.prototype = superClass.prototype;
+
+	this.prototype = new Inheritance();
+	this.prototype.constructor = this;
+	this.superClass = superClass;
+}
+
+
 
 
