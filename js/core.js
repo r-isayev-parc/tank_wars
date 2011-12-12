@@ -97,7 +97,3 @@ Function.prototype.inheritsFrom = function(superClass) {
 	this.prototype.constructor = this;
 	this.superClass = superClass;
 }
-
-
-
-
