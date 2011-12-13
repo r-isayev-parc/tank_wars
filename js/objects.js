@@ -34,24 +34,28 @@ var Test = function(x, y) {
 };
 
 Test.inheritsFrom(GameObject);
+$.extend( Test.prototype, {
+
+	draw: function(ctx, ctx_width, ctx_height) {
+		ctx.beginPath();
+		ctx.fillStyle = '#458935';
+		ctx.arc(this.position.x, this.position.y, 30, 0, Math.PI*2, true);
+		ctx.stroke();
+		ctx.fill(); 
+		ctx.closePath();
+	},
+		
+	draw2: function(ctx, ctx_width, ctx_height) {
+		ctx.beginPath();
+		ctx.fillStyle = '#547609';
+		ctx.arc(this.position.x, this.position.y+30, 30, 0, Math.PI*2, true);
+		ctx.stroke();
+		ctx.fill(); 
+		ctx.closePath();
+	}
+});
 	
-Test.prototype.draw = function(ctx, ctx_width, ctx_height) {
-	ctx.beginPath();
-	ctx.fillStyle = '#458935';
-	ctx.arc(this.position.x, this.position.y, 30, 0, Math.PI*2, true);
-	ctx.stroke();
-	ctx.fill(); 
-	ctx.closePath();
-};
-	
-Test.prototype.draw2 = function(ctx, ctx_width, ctx_height) {
-	ctx.beginPath();
-	ctx.fillStyle = '#547609';
-	ctx.arc(this.position.x, this.position.y+30, 30, 0, Math.PI*2, true);
-	ctx.stroke();
-	ctx.fill(); 
-	ctx.closePath();
-}
+
 
 
 

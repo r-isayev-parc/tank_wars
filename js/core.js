@@ -55,8 +55,7 @@ Core.prototype = {
 			this.canvas = $('<canvas width="' + this.canvas_width + '" height="' + this.canvas_height + '"></canvas>')
 			this.canvas.appendTo(element);	
 			
-			this.engine = new Engine();
-			this.engine.initialize(this.canvas.get(0).getContext('2d'), this.canvas_width, this.canvas_height);			
+			this.engine = new Engine(this.canvas.get(0).getContext('2d'), this.canvas_width, this.canvas_height);		
 		}
 	}
 	
